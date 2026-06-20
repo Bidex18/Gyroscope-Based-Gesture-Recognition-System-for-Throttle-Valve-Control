@@ -1,19 +1,50 @@
-# Gyroscope-Based-Gesture-Recognition-System-for-Throttle-Valve-Control
-This technical report delves into the development and implementation of a sophisticated gyroscopebased gesture recognition system tailored for the control of a throttle valve. The project synthesizes 
-an array of hardware components including the Gyroscope Sensor (GY-521), a servo motor, an active
-buzzer, and an LED, culminating in a real-time control setup integrated with overflow detection 
-capabilities. The primary aim of this endeavour is to explore the intricate technical intricacies of 
-gyroscope-centric gesture recognition and its pragmatic implications in fluid flow control scenarios. 
-This report offers a meticulously structured narrative, encompassing the conceptualization, design, 
-coding, execution phases, alongside a meticulous performance analysis.
+#Gyroscope-Based Gesture Recognition System for Throttle Valve Control
 
-Introduction 
+A gesture-controlled actuation system that uses a gyroscope sensor to detect hand orientation and translate it into real-time servo motor control — simulating throttle valve positioning. Built as an individual project to explore embedded sensor integration, Bluetooth/CAN bus communication, and real-time actuator control.
 
-The integration of gyroscope-based gesture recognition systems represents a significant milestone in 
-the evolution of interactive control mechanisms. The report unfolds the journey of developing and 
-implementing a novel system harnessing the power of gyroscope sensors to interpret hand gestures 
-for throttle valve control. The project's fundamental objective is to exemplify the technical prowess 
-of gyroscope-driven gesture recognition, underscored by its pragmatic utility in regulating fluid flow 
-dynamics through a throttle valve. By unravelling the complexities of hardware interfacing, gesture 
-interpretation algorithms, and performance evaluation metrics, this report aims to offer a 
-comprehensive understanding of this innovative control paradigm.
+What it does
+
+
+Reads angular motion from a GY-521 (MPU-6050) gyroscope sensor to track hand gestures in real time.
+Maps tilt angle directly to servo motor rotation, simulating throttle valve positioning based on hand movement.
+Communicates over Bluetooth for wireless control of LED and push-button states.
+Integrates CAN bus protocol for data exchange with external devices — the same communication standard used in automotive and industrial control systems.
+Includes overflow/limit detection to keep the system operating safely within range.
+
+
+Hardware & Tools
+
+
+Arduino Uno
+GY-521 (MPU-6050) gyroscope/accelerometer sensor
+Servo motor
+Active buzzer + LED (status/alert indicators)
+CAN bus module
+Bluetooth module
+Arduino IDE (C++)
+
+
+How it works
+
+
+The MPU-6050 continuously streams orientation data to the Arduino over I2C.
+The Arduino processes this data and maps the tilt angle to a target servo position.
+The servo moves in real time to reflect the gesture, simulating throttle valve response.
+In parallel, the system listens for Bluetooth commands (LED/button control) and exchanges status data over the CAN bus.
+A buzzer/LED provide simple feedback if the system detects an out-of-range condition.
+
+
+Why this project
+
+Most gesture-control demos stop at "move the servo." This one goes further by layering in the communication protocols that real automotive and industrial systems actually use — CAN bus for inter-device data exchange, with Bluetooth for local wireless control — so the gesture input isn't just a toy, it's wired into a realistic control architecture.
+
+Files
+
+
+Task_3.ino — main Arduino firmware
+Microcontrollers report.pdf — full technical write-up (design rationale, testing, performance analysis)
+
+
+Status
+
+Built and tested on physical hardware. Individual project.
