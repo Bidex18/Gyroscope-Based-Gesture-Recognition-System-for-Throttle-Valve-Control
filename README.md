@@ -6,6 +6,7 @@ capabilities. The primary aim of this endeavour is to explore the intricate tech
 gyroscope-centric gesture recognition and its pragmatic implications in fluid flow control scenarios. 
 This report offers a meticulously structured narrative, encompassing the conceptualization, design, 
 coding, execution phases, alongside a meticulous performance analysis.
+
 Introduction 
 
 The integration of gyroscope-based gesture recognition systems represents a significant milestone in 
